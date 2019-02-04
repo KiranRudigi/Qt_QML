@@ -1,0 +1,13 @@
+Steps to fix the Screen orientation in Qt_Android:
+
+1. Find the AndroidManifest.xml file in the build directory.
+2. Open it in notepad.
+3. Find for android:screenOrientation="unspecified".
+4. Replace the text "unspecified" to "sensorLandscape" or "sensorPortrait".
+5. Create a folder(Manifest) under project directory. Save the AndroidManifest.xml file in Manifest folder.
+6. Go to pro file and add following snippet:
+	OTHER_FILES += \
+	$$PWD/Manifest/AndroidManifest.xml
+	ANDROID_PACKAGE_SOURCE_DIR = $$PWD/Manifest
+7. Run qmake.
+8. Build and Deploy the application to the Android device.
